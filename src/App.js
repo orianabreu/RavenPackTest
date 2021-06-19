@@ -4,6 +4,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import theme from './styles/theme';
 import NavBar from './components/NavBar/NavBar';
 import Home from './components/Home/Home';
+import Post from './components/Post/Post';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <CssBaseline />
         <NavBar />
         <Home />
+        <Post />
     </ ThemeProvider>
   );
 }
