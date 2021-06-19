@@ -14,7 +14,7 @@ export default function NavBar() {
       <AppBar position="static" className={MuiAppBar}>
         <Toolbar>
           <Typography className={title}>
-            My Blog
+            Blog
           </Typography>
           <SearchBar />
         </Toolbar>
