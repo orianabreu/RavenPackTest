@@ -2,9 +2,9 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 
 import useStyles from './styles';
+import SearchBar from '../SearchBar/SearchBar';
 
 export default function NavBar() {
   const {container, title, MuiAppBar} = useStyles();
@@ -16,7 +16,7 @@ export default function NavBar() {
           <Typography className={title}>
             My Blog
           </Typography>
-
+          <SearchBar />
         </Toolbar>
       </AppBar>
     </div>
