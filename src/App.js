@@ -1,5 +1,6 @@
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from "@material-ui/core/CssBaseline";
+import Grid from '@material-ui/core/Grid';
 
 import theme from './styles/theme';
 import NavBar from './components/NavBar/NavBar';
@@ -12,7 +13,14 @@ function App() {
       <CssBaseline />
         <NavBar />
         <Home />
-        <Post />
+        <Grid container spacing={2} justify='center'>
+          <Post />
+          <Post />
+          <Post />
+          <Post />
+          <Post />
+          <Post />
+        </Grid>
     </ ThemeProvider>
   );
 }
