@@ -7,6 +7,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
 import useStyles from './styles';
+import postImg from '../../assets/postImg.jpg';
 
 export default function ImgMediaCard({title, body, userId}) {
   const { postCard } = useStyles();
@@ -18,7 +19,7 @@ export default function ImgMediaCard({title, body, userId}) {
             component="img"
             alt="Contemplative Reptile"
             height="140"
-            image="/static/images/cards/contemplative-reptile.jpg"
+            image={postImg}
             title="Contemplative Reptile"
           />
           <CardContent>
