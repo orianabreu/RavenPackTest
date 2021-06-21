@@ -21,28 +21,26 @@ export default function SinglePost() {
 
     return (
         <Container maxWidth="md">
+
             <Typography className={title}>
-                my title
+                post title
             </Typography>
-            <Box>
                 <Grid container item xs={12}>
                     <Avatar alt="Remy Sharp" src="/broken-image.jpg" className={userAvatar} />
                     <div>
-                        <Typography>Name</Typography>
-                        <Typography>Date</Typography>
+                        <Typography>User Id</Typography>
                     </div>
                 </Grid>
-            </Box>
             <Typography className={description}> 
-                description
+                post description
             </Typography>
             <Typography>Comments:</Typography>
 
             {comments.map((comment) => (
-                <Box className={commentContainer} key={comment.id}>
-                    <Typography variant='body1'>{comment.name}</Typography>
-                    <Typography variant='body1'>{comment.body}</Typography>
-                </Box>
+                <div className={commentContainer} key={comment.id}>
+                    <Typography variant='body1' color='primary'>{comment.name}:</Typography>
+                    <Typography paragraph>{comment.body}</Typography>
+                </div>
             ))}
             
         </Container>

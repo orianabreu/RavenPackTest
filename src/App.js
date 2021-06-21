@@ -27,8 +27,8 @@ function App() {
         <NavBar />
         {!postIsOpen && <Home />}
         {!postIsOpen && <Grid container spacing={2} justify='center'>
-          {posts.map(({...rest}) => (
-            <PostCard {...rest} setPostIsOpen={setPostIsOpen}/>
+          {posts.map(({id, ...rest}) => (
+            <PostCard {...rest} setPostIsOpen={setPostIsOpen} key={id}/>
           ))}
         </Grid>}
         {postIsOpen && <SinglePost postIsOpen={postIsOpen}/>}

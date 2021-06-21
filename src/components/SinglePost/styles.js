@@ -17,6 +17,8 @@ const useStyles = makeStyles((theme) => ({
     },
     commentContainer: {
         width: '100%',
+        backgroundColor: theme.palette.secondary.main,
+        margin: '10px 0',
     },
   }));
 
