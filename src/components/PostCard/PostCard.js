@@ -9,12 +9,12 @@ import Typography from '@material-ui/core/Typography';
 import useStyles from './styles';
 import postImg from '../../assets/postImg.jpg';
 
-export default function ImgMediaCard({title, body, userId}) {
+export default function ImgMediaCard({title, body, userId, setPostIsOpen}) {
   const { postCard } = useStyles();
 
   return (
       <Card className={postCard}>
-        <CardActionArea>
+        <CardActionArea onClick={() => {setPostIsOpen(prevState=>!prevState)}}>
           <CardMedia
             component="img"
             alt="Contemplative Reptile"

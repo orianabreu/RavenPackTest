@@ -13,6 +13,8 @@ function App() {
 
   const [posts, setPosts] = useState([]);
 
+  const [postIsOpen, setPostIsOpen] = useState(false);
+
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/posts')
       .then(response => response.json())
@@ -23,13 +25,13 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
         <NavBar />
-        <Home />
-        <Grid container spacing={2} justify='center'>
+        {!postIsOpen && <Home />}
+        {!postIsOpen && <Grid container spacing={2} justify='center'>
           {posts.map(({...rest}) => (
-            <PostCard {...rest}/>
+            <PostCard {...rest} setPostIsOpen={setPostIsOpen}/>
           ))}
-        </Grid>
-        <SinglePost />
+        </Grid>}
+        <SinglePost postIsOpen={postIsOpen}/>
     </ ThemeProvider>
   );
 }
