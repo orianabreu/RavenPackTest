@@ -31,7 +31,7 @@ function App() {
             <PostCard {...rest} setPostIsOpen={setPostIsOpen}/>
           ))}
         </Grid>}
-        <SinglePost postIsOpen={postIsOpen}/>
+        {postIsOpen && <SinglePost postIsOpen={postIsOpen}/>}
     </ ThemeProvider>
   );
 }

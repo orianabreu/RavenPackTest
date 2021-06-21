@@ -14,7 +14,10 @@ const useStyles = makeStyles((theme) => ({
     },
     userAvatar: {
         margin: '0 10px',
-    }
+    },
+    commentContainer: {
+        width: '100%',
+    },
   }));
 
   export default useStyles;

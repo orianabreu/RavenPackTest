@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Avatar from '@material-ui/core/Avatar';
@@ -9,7 +9,15 @@ import useStyles from './styles';
 
 export default function SinglePost() {
 
-    const { title, description, userAvatar } = useStyles();
+    const [comments, setComments] = useState([]);
+
+    useEffect(() => {
+        fetch('https://jsonplaceholder.typicode.com/posts/1/comments')
+          .then(response => response.json())
+          .then(json => setComments(json))
+      }, [setComments])
+
+    const { title, description, userAvatar, commentContainer } = useStyles();
 
     return (
         <Container maxWidth="md">
@@ -28,10 +36,15 @@ export default function SinglePost() {
             <Typography className={description}> 
                 description
             </Typography>
-            <Box>
-                <Typography>Comments:</Typography>
-                <Typography>all comments</Typography>
-            </Box>
+            <Typography>Comments:</Typography>
+
+            {comments.map((comment) => (
+                <Box className={commentContainer} key={comment.id}>
+                    <Typography variant='body1'>{comment.name}</Typography>
+                    <Typography variant='body1'>{comment.body}</Typography>
+                </Box>
+            ))}
+            
         </Container>
     )
 }
