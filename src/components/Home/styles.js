@@ -9,7 +9,6 @@ export const Container = styled.div`
 export const HomeImage = styled.img`
     height: 100%;
     width: 100%;
-    opacity: 0.6;
 `;
 
 export const TextOverlay = styled.div`
@@ -27,5 +26,4 @@ export const TextOverlay = styled.div`
 export const HomeText = styled.h1`
     font-weight: 500;
     font-size: 6rem;
-    font-family: 'Parisienne', cursive;
 `;

@@ -7,7 +7,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
 import useStyles from './styles';
-import postImg from '../../assets/postImg.jpg';
+import postImg from '../../assets/postimg.png';
 
 export default function ImgMediaCard({title, body, userId, setPostIsOpen}) {
   const { postCard } = useStyles();
@@ -17,10 +17,10 @@ export default function ImgMediaCard({title, body, userId, setPostIsOpen}) {
         <CardActionArea onClick={() => {setPostIsOpen(prevState=>!prevState)}}>
           <CardMedia
             component="img"
-            alt="Contemplative Reptile"
+            alt="Skinkcare products"
             height="140"
             image={postImg}
-            title="Contemplative Reptile"
+            title="Skinkcare products"
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
@@ -31,6 +31,7 @@ export default function ImgMediaCard({title, body, userId, setPostIsOpen}) {
             </Typography>
           </CardContent>
         </CardActionArea>
+
         <CardActions>
           <Typography variant="body" color="textSecondary" component="h3">
             User: {userId}
@@ -40,6 +41,3 @@ export default function ImgMediaCard({title, body, userId, setPostIsOpen}) {
   );
 }
 
-//create search bar and filter user posts
-//create a component to see a single post with coments 
-//change colors

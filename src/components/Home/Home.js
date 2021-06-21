@@ -1,6 +1,6 @@
 import React from 'react';
 
-import homeImg from '../../assets/backgroungimg.png';
+import homeImg from '../../assets/backgroundimg.png';
 
 import * as S from './styles';
 
