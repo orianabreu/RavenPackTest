@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 
 import useStyles from './styles';
 
-export default function ImgMediaCard() {
+export default function ImgMediaCard({title, body}) {
   const { postCard } = useStyles();
 
   return (
@@ -24,11 +24,10 @@ export default function ImgMediaCard() {
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
-              Lizard
+              {title}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-              across all continents except Antarctica
+              {body}
             </Typography>
           </CardContent>
         </CardActionArea>
