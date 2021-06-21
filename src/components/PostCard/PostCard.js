@@ -10,30 +10,31 @@ import useStyles from './styles';
 import postImg from '../../assets/postimg.png';
 
 export default function ImgMediaCard({title, body, userId, setPostIsOpen}) {
-  const { postCard } = useStyles();
+
+  const { postCard, postDescription, userText } = useStyles();
 
   return (
       <Card className={postCard}>
         <CardActionArea onClick={() => {setPostIsOpen(prevState=>!prevState)}}>
           <CardMedia
             component="img"
-            alt="Skinkcare products"
+            alt="jellyfish"
             height="140"
             image={postImg}
-            title="Skinkcare products"
+            title="jellyfish"
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
+            <Typography gutterBottom variant="h5">
               {title}
             </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
+            <Typography variant="body2" className={postDescription}>
               {body}
             </Typography>
           </CardContent>
         </CardActionArea>
 
         <CardActions>
-          <Typography variant="body" color="textSecondary" component="h3">
+          <Typography variant="body1" className={userText}>
             User: {userId}
           </Typography>
         </CardActions>

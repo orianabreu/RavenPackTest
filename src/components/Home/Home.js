@@ -1,19 +1,21 @@
 import React from 'react';
+import Typography from '@material-ui/core/Typography';
 
 import homeImg from '../../assets/backgroundimg.png';
-
-import * as S from './styles';
+import useStyles from './styles';
 
 export default function Home() {
 
+    const { container, homeImage, textOverlay, homeText} = useStyles();
+
     return (
-        <S.Container>
-            <S.HomeImage src={homeImg} alt='homeimage'/>
-            <S.TextOverlay>
-                <S.HomeText>
+        <div className={container}>
+            <img src={homeImg} alt='homeimage' className={homeImage}/>
+            <div className={textOverlay}>
+                <Typography className={homeText}>
                     welcome to my blog
-                </S.HomeText>
-            </S.TextOverlay>
-        </S.Container>
+                </Typography>
+            </div>
+        </div>
     )
 }

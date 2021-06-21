@@ -8,11 +8,9 @@ const theme = createMuiTheme({
             white: '#f5f5fa',
         },
         secondary: {
-            main: '#EDE6E3'
+            main: '#EDE6E3',
+            dark: '#737373',
         },
-        black: {
-            main: '#151515',
-        }
     },
     typography: {
         fontFamily: "Roboto",
