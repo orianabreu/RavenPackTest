@@ -4,12 +4,11 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 import useStyles from './styles';
 
-export default function ImgMediaCard({title, body}) {
+export default function ImgMediaCard({title, body, userId}) {
   const { postCard } = useStyles();
 
   return (
@@ -32,13 +31,14 @@ export default function ImgMediaCard({title, body}) {
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Button size="small" color="primary">
-            Share
-          </Button>
-          <Button size="small" color="primary">
-            Learn More
-          </Button>
+          <Typography variant="body" color="textSecondary" component="h3">
+            User: {userId}
+          </Typography>
         </CardActions>
       </Card>
   );
 }
+
+//create search bar and filter user posts
+//create a component to see a single post with coments 
+//change colors
