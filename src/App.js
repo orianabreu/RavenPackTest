@@ -1,4 +1,9 @@
 import { useEffect, useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from '@material-ui/core/Grid';
@@ -12,8 +17,6 @@ import SinglePost from './components/SinglePost/SinglePost';
 function App() {
 
   const [posts, setPosts] = useState([]);
-
-  const [postIsOpen, setPostIsOpen] = useState(false);
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/posts')
@@ -35,14 +38,21 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-        <NavBar />
-        {!postIsOpen && <Home />}
-        {!postIsOpen && <Grid container spacing={2} justify='center'>
-          {loadedPosts.map(({id, ...rest}) => (
-            <PostCard {...rest} setPostIsOpen={setPostIsOpen} key={id}/>
-          ))}
-        </Grid>}
-        {postIsOpen && <SinglePost postIsOpen={postIsOpen}/>}
+      
+      <Router>
+          <NavBar />
+          <Switch>
+            <Route exact path='/'>
+              <Home />
+              <Grid container spacing={2} justify='center'>
+                {loadedPosts.map(({id, ...rest}) => (
+                  <PostCard {...rest} key={id}/>
+                ))}
+              </Grid>
+            </Route>
+            <Route exact path='/singlePost' component={SinglePost} />
+          </Switch>
+      </Router>
     </ ThemeProvider>
   );
 }
