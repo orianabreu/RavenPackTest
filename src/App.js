@@ -21,13 +21,24 @@ function App() {
       .then(json => setPosts(json))
   }, [])
 
+  const [showPost, setShowPost] = useState(20);
+  const loadedPosts = posts.slice(0, showPost);
+
+    function loadMore(){
+        if(showPost < 100){
+            setShowPost (showPost + 20);
+        }else{
+            alert('No new Post');
+        }
+    }
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
         <NavBar />
         {!postIsOpen && <Home />}
         {!postIsOpen && <Grid container spacing={2} justify='center'>
-          {posts.map(({id, ...rest}) => (
+          {loadedPosts.map(({id, ...rest}) => (
             <PostCard {...rest} setPostIsOpen={setPostIsOpen} key={id}/>
           ))}
         </Grid>}
@@ -37,3 +48,6 @@ function App() {
 }
 
 export default App;
+
+//create a button to access a list of all post (just the title) and then add a search bar to filter by name 
+// divide the components (image, comments, post, user) so each one of them can hold a fetch and url
