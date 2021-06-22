@@ -5,7 +5,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
 import useStyles from './styles';
-import SearchBar from '../SearchBar/SearchBar';
 
 export default function NavBar() {
   const {container, title, MuiAppBar } = useStyles();
@@ -19,7 +18,6 @@ export default function NavBar() {
               Blog
             </Typography>
           </Link>
-          <SearchBar />
         </Toolbar>
       </AppBar>
     </div>
