@@ -50,7 +50,7 @@ function App() {
                 ))}
               </Grid>
             </Route>
-            <Route exact path='/singlePost' component={SinglePost} />
+            <Route exact path='/singlePost/id' component={SinglePost} />
           </Switch>
       </Router>
     </ ThemeProvider>
