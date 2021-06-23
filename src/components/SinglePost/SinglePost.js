@@ -24,7 +24,7 @@ export default function SinglePost() {
           .then(json => setPostInfo(json))
       }, [])
 
-    const { postTitle, description, userAvatar } = useStyles();
+    const { postTitle, description, userAvatar, subtitle } = useStyles();
     const { title, body } = postInfo;
 
     return (
@@ -42,7 +42,8 @@ export default function SinglePost() {
             <Typography className={description}> 
                 {body}
             </Typography>
-            <Typography>Comments:</Typography>
+
+            <Typography className={subtitle}>Comments:</Typography>
             <Comments postID={postId}/>
         </Container>
     )

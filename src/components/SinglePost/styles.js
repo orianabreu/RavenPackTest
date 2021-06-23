@@ -20,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.secondary.main,
         margin: '10px 0',
     },
+    subtitle: {
+        marginBottom: '20px',
+    }
   }));
 
   export default useStyles;

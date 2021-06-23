@@ -4,11 +4,9 @@ import SingleComment from '../SingleComment/SingleComment';
 
 export default function Comments({postID}) {
     const [comments, setComments] = useState([]);
-    const url = `https://jsonplaceholder.typicode.com/posts/${postID}/comments`;
-    
 
     useEffect(() =>{
-        fetch(url)
+        fetch(`https://jsonplaceholder.typicode.com/posts/${postID}/comments`)
         .then(res => res.json())
         .then(data => setComments(data));
     }, [] )

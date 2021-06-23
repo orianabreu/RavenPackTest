@@ -19,7 +19,6 @@ export default function SingleComment({ comment: { name, email, body } }) {
             const img = data.results[0].picture.large;
             setUserImage(img)
         })
-        .catch(err => console.log(err));
     }, []);
 
     const { commentCard, userImageStyle, userComment } = useStyles();
