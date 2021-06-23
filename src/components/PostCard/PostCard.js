@@ -12,7 +12,7 @@ import {
 import useStyles from './styles';
 import postImg from '../../assets/postimg.png';
 
-export default function ImgMediaCard({id, title, body, userId}) {
+export default function ImgMediaCard({pst: { id, title, body }}) {
 
   const { postCard, postDescription, userText } = useStyles();
 
@@ -40,7 +40,7 @@ export default function ImgMediaCard({id, title, body, userId}) {
 
         <CardActions>
           <Typography variant="body1" className={userText}>
-            User: {userId}
+            User: 
           </Typography>
         </CardActions>
       </Card>

@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-    title: {
+    postTitle: {
         fontSize: '4rem',
         fontWeight: '500',
         textAlign: 'center',

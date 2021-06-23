@@ -1,28 +1,36 @@
 import React, { useState, useEffect } from 'react';
-import Typography from '@material-ui/core/Typography';
-import Avatar from '@material-ui/core/Avatar';
-import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
+import { useParams } from 'react-router-dom';
+import { 
+    Typography,
+    Avatar,
+    Grid,
+    Container
+} from '@material-ui/core';
 
 import useStyles from './styles';
 
 export default function SinglePost() {
 
-    const [comments, setComments] = useState([]);
+    const [postInfo, setPostInfo] = useState({
+        title: '',
+        body: '',
+    });
+    const { postId } = useParams();
 
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/posts/1/comments')
+        fetch('https://jsonplaceholder.typicode.com/posts/' + postId)
           .then(response => response.json())
-          .then(json => setComments(json))
-      }, [setComments])
+          .then(json => setPostInfo(json))
+      }, [])
 
-    const { title, description, userAvatar, commentContainer } = useStyles();
+    const { postTitle, description, userAvatar } = useStyles();
+    const { title, body } = postInfo;
 
     return (
         <Container maxWidth="md">
 
-            <Typography className={title}>
-                post title
+            <Typography className={postTitle}>
+                {title}
             </Typography>
                 <Grid container item xs={12}>
                     <Avatar alt="Remy Sharp" src="/broken-image.jpg" className={userAvatar} />
@@ -31,16 +39,9 @@ export default function SinglePost() {
                     </div>
                 </Grid>
             <Typography className={description}> 
-                post description
+                {body}
             </Typography>
             <Typography>Comments:</Typography>
-
-            {comments.map((comment) => (
-                <div className={commentContainer} key={comment.id}>
-                    <Typography variant='body1' color='primary'>{comment.name}:</Typography>
-                    <Typography paragraph>{comment.body}</Typography>
-                </div>
-            ))}
             
         </Container>
     )

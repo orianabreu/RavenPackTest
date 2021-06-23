@@ -45,12 +45,12 @@ function App() {
             <Route exact path='/'>
               <Home />
               <Grid container spacing={2} justify='center'>
-                {loadedPosts.map(({id, ...rest}) => (
-                  <PostCard {...rest} key={id}/>
+                {loadedPosts.map((pst) => (
+                  <PostCard pst={pst} key={pst.id}/>
                 ))}
               </Grid>
             </Route>
-            <Route exact path='/singlePost/id' component={SinglePost} />
+            <Route exact path='/singlePost/:postId' component={SinglePost} />
           </Switch>
       </Router>
     </ ThemeProvider>
