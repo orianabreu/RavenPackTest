@@ -8,6 +8,7 @@ import {
 } from '@material-ui/core';
 
 import useStyles from './styles';
+import Comments from '../Comments/Comments';
 
 export default function SinglePost() {
 
@@ -42,7 +43,7 @@ export default function SinglePost() {
                 {body}
             </Typography>
             <Typography>Comments:</Typography>
-            
+            <Comments postID={postId}/>
         </Container>
     )
 }
