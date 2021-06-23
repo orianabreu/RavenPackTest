@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-    title: {
+    postTitle: {
         fontSize: '4rem',
         fontWeight: '500',
         textAlign: 'center',
@@ -20,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.secondary.main,
         margin: '10px 0',
     },
+    subtitle: {
+        marginBottom: '20px',
+    }
   }));
 
   export default useStyles;

@@ -1,41 +1,46 @@
 import React from 'react';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
+import { Link } from "react-router-dom";
+import { 
+  Card,
+  CardActionArea,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Typography
+} from '@material-ui/core';
 
 import useStyles from './styles';
 import postImg from '../../assets/postimg.png';
 
-export default function ImgMediaCard({title, body, userId, setPostIsOpen}) {
+export default function ImgMediaCard({pst: { id, title, body, userId }}) {
 
   const { postCard, postDescription, userText } = useStyles();
 
   return (
       <Card className={postCard}>
-        <CardActionArea onClick={() => {setPostIsOpen(prevState=>!prevState)}}>
-          <CardMedia
-            component="img"
-            alt="jellyfish"
-            height="140"
-            image={postImg}
-            title="jellyfish"
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5">
-              {title}
-            </Typography>
-            <Typography variant="body2" className={postDescription}>
-              {body}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
+        <Link to={`/singlePost/${id}`} style={{ textDecoration: 'none', color: '#000'}}>
+          <CardActionArea>
+            <CardMedia
+              component="img"
+              alt="jellyfish"
+              height="140"
+              image={postImg}
+              title="jellyfish"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5">
+                {title}
+              </Typography>
+              <Typography variant="body2" className={postDescription}>
+                {body}
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+        </Link>
 
         <CardActions>
           <Typography variant="body1" className={userText}>
-            User: {userId}
+            Written by user {userId}
           </Typography>
         </CardActions>
       </Card>
