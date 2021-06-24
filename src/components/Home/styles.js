@@ -5,6 +5,7 @@ const useStyles = makeStyles((theme) => ({
         overflow: 'hidden',
         maxHeight: '90vh',
         maxWidth: '100%', 
+        position: 'relative',
     },
     homeImage: {
         height: '100%',
@@ -25,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: 500,
         fontSize: '6rem',
         color: theme.palette.primary.white,
+        marginBottom: '50px',  
     }
   }));
 

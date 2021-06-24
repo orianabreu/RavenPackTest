@@ -22,7 +22,7 @@ export default function SinglePost() {
         fetch('https://jsonplaceholder.typicode.com/posts/' + postId)
           .then(response => response.json())
           .then(json => setPostInfo(json))
-      }, [])
+      }, [postId])
 
     const { postTitle, description, userAvatar, subtitle } = useStyles();
     const { title, body } = postInfo;
