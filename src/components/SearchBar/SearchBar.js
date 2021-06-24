@@ -1,14 +1,18 @@
 import React from 'react';
 import SearchIcon from '@material-ui/icons/Search';
-import InputBase from '@material-ui/core/InputBase';
+import { 
+  InputBase,
+  Container
+} from '@material-ui/core';
 
 import useStyles from './styles';
 
 export default function SearchBar() {
 
-    const { search, searchIcon, inputRoot, inputInput} = useStyles();
+    const { search, searchIcon, inputRoot, inputInput } = useStyles();
 
     return (
+      <Container maxWidth='lg'>
         <div className={search}>
             <div className={searchIcon}>
               <SearchIcon />
@@ -21,6 +25,7 @@ export default function SearchBar() {
               }}
               inputProps={{ 'aria-label': 'search' }}
             />
-          </div>
+        </div>
+      </Container>
     )
 }

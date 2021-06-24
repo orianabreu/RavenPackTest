@@ -14,6 +14,7 @@ import Home from './components/Home/Home';
 import PostCard from './components/PostCard/PostCard';
 import SinglePost from './components/SinglePost/SinglePost';
 import PostList from './components/PostList/PostList';
+import SearchBar from './components/SearchBar/SearchBar';
 
 function App(pst) {
 
@@ -45,6 +46,7 @@ function App(pst) {
           <Switch>
             <Route exact path='/'>
               <Home />
+              <SearchBar />
               <Grid container spacing={2} justify='center'>
                 {loadedPosts.map((pst) => (
                   <PostCard pst={pst} key={pst.id}/>
