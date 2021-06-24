@@ -20,7 +20,7 @@ function App(pst) {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/posts')
+    fetch('https://jsonplaceholder.typicode.com/posts/')
       .then(response => response.json())
       .then(json => setPosts(json))
   }, [])
@@ -52,7 +52,7 @@ function App(pst) {
               </Grid>
             </Route>
             <Route exact path='/singlePost/:postId' component={SinglePost} />
-            <Route exact path='/PostList/'>
+            <Route exact path='/PostList'>
               <PostList pst={pst}/>
             </Route>
           </Switch>
@@ -63,5 +63,3 @@ function App(pst) {
 
 export default App;
 
-//create a button to access a list of all post (just the title) and then add a search bar to filter by name 
-// divide the components (image, comments, post, user) so each one of them can hold a fetch and url

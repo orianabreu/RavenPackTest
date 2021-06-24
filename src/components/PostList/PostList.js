@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { 
     Typography,
     Container 
@@ -11,12 +11,10 @@ export default function PostList({pst: { id }}) {
 
     const [postsList, setPostsList] = useState([]);
 
-    const { postId } = useParams();
-
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/posts')
+        fetch('https://jsonplaceholder.typicode.com/posts/')
         .then(response => response.json())
-        .then(json => setPostsList(json))
+        .then(data => setPostsList(data))
     }, [])
 
     const { heading, text } = useStyles();
