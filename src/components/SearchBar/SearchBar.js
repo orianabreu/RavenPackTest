@@ -7,7 +7,7 @@ import {
 
 import useStyles from './styles';
 
-export default function SearchBar() {
+export default function SearchBar(props) {
 
     const { search, searchIcon, inputRoot, inputInput } = useStyles();
 
@@ -18,12 +18,13 @@ export default function SearchBar() {
               <SearchIcon />
             </div>
             <InputBase
-              placeholder="Search…"
+              placeholder="Search user posts"
               classes={{
                 root: inputRoot,
                 input: inputInput,
               }}
               inputProps={{ 'aria-label': 'search' }}
+              {...props}
             />
         </div>
       </Container>
