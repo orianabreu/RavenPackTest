@@ -9,7 +9,7 @@ export default function Comments({postID}) {
         fetch(`https://jsonplaceholder.typicode.com/posts/${postID}/comments`)
         .then(res => res.json())
         .then(data => setComments(data));
-    }, [] )
+    }, [postID] )
     
     return (
         <div>
