@@ -13,8 +13,9 @@ import NavBar from './components/NavBar/NavBar';
 import Home from './components/Home/Home';
 import PostCard from './components/PostCard/PostCard';
 import SinglePost from './components/SinglePost/SinglePost';
+import PostList from './components/PostList/PostList';
 
-function App() {
+function App(pst) {
 
   const [posts, setPosts] = useState([]);
 
@@ -51,6 +52,9 @@ function App() {
               </Grid>
             </Route>
             <Route exact path='/singlePost/:postId' component={SinglePost} />
+            <Route exact path='/PostList/'>
+              <PostList pst={pst}/>
+            </Route>
           </Switch>
       </Router>
     </ ThemeProvider>
