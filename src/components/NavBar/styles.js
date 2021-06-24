@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     },
     MuiAppBar: {
         backgroundColor: 'transparent',
-    },
+    }
   }));
 
   export default useStyles;
