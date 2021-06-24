@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import MenuIcon from '@material-ui/icons/Menu';
 import { Typography,
   Menu,
-  MenuItem
+  MenuItem,
 } from '@material-ui/core';
 
 import useStyles from './styles';
-import Button from '../Button/Button';
 
 export default function NavBar() {
 
@@ -32,9 +32,8 @@ export default function NavBar() {
               Blog
             </Typography>
 
-            <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-                Menu
-            </Button>
+            <MenuIcon onClick={handleClick} color='primary'/>
+               
             <Menu
                 id="simple-menu"
                 anchorEl={anchorEl}
@@ -42,9 +41,13 @@ export default function NavBar() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
             >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
+              <Link exact to='/' style={{ textDecoration: 'none', color: '#000'}}>
+                <MenuItem onClick={handleClose}>Home</MenuItem>
+              </Link>
+
+              <Link exact to='/PostList' style={{ textDecoration: 'none', color: '#000'}}>
+                <MenuItem onClick={handleClose}>List of posts</MenuItem>
+              </Link>
             </Menu>
         </Toolbar>
       </AppBar>
