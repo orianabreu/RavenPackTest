@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Grid from '@material-ui/core/Grid';
+import { Grid, Container } from '@material-ui/core';
 
 import theme from './styles/theme';
 import NavBar from './components/NavBar/NavBar';
@@ -14,10 +14,18 @@ import Home from './components/Home/Home';
 import PostCard from './components/PostCard/PostCard';
 import SinglePost from './components/SinglePost/SinglePost';
 import PostList from './components/PostList/PostList';
+import SearchBar from './components/SearchBar/SearchBar';
+import Button from './components/Button/Button';
 
 function App(pst) {
 
   const [posts, setPosts] = useState([]);
+  const [searchValue, setSearchValue] = useState(0);
+  const [filteredPosts, setFilteredPosts] = useState([]);
+
+  const handleSearchChange = (event) => {
+    setSearchValue(parseInt(event.target.value, 10))
+  }
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/posts/')
@@ -25,16 +33,9 @@ function App(pst) {
       .then(json => setPosts(json))
   }, [])
 
-  const [showPost, setShowPost] = useState(20);
-  const loadedPosts = posts.slice(0, showPost);
-
-    function loadMore(){
-        if(showPost < 100){
-            setShowPost (showPost + 20);
-        }else{
-            alert('No new Post');
-        }
-    }
+  useEffect(() => {
+    setFilteredPosts(posts.filter((pst) => pst.userId === searchValue));
+  }, [posts, searchValue]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -45,8 +46,16 @@ function App(pst) {
           <Switch>
             <Route exact path='/'>
               <Home />
+              <SearchBar
+              min={0} 
+              type='number'
+              value={searchValue}
+              onChange={handleSearchChange}
+              />
               <Grid container spacing={2} justify='center'>
-                {loadedPosts.map((pst) => (
+                {searchValue === 0 ? posts.map((pst) => (
+                  <PostCard pst={pst} key={pst.id}/>
+                )) : filteredPosts.map((pst) => (
                   <PostCard pst={pst} key={pst.id}/>
                 ))}
               </Grid>
