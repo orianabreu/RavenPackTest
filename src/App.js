@@ -20,7 +20,12 @@ import Button from './components/Button/Button';
 function App(pst) {
 
   const [posts, setPosts] = useState([]);
-  const [query, setQuery] = useState('');
+  const [searchValue, setSearchValue] = useState(0);
+  const [filteredPosts, setFilteredPosts] = useState([]);
+
+  const handleSearchChange = (event) => {
+    setSearchValue(parseInt(event.target.value, 10))
+  }
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/posts/')
@@ -28,16 +33,9 @@ function App(pst) {
       .then(json => setPosts(json))
   }, [])
 
-  const [showPost, setShowPost] = useState(20);
-  const loadedPosts = posts.slice(0, showPost);
-
-    function loadMore(){
-        if(showPost < 100){
-            setShowPost (showPost + 20);
-        }else{
-            alert('No new Post');
-        }
-    }
+  useEffect(() => {
+    setFilteredPosts(posts.filter((pst) => pst.userId === searchValue));
+  }, [posts, searchValue]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -48,18 +46,19 @@ function App(pst) {
           <Switch>
             <Route exact path='/'>
               <Home />
-              <SearchBar 
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              <SearchBar
+              min={0} 
+              type='number'
+              value={searchValue}
+              onChange={handleSearchChange}
               />
               <Grid container spacing={2} justify='center'>
-                {loadedPosts.map((pst) => (
+                {searchValue === 0 ? posts.map((pst) => (
+                  <PostCard pst={pst} key={pst.id}/>
+                )) : filteredPosts.map((pst) => (
                   <PostCard pst={pst} key={pst.id}/>
                 ))}
               </Grid>
-              <Container maxWidth='lg' style={{display: 'flex', justifyContent: 'center', margin: '30px 0'}}>
-                <Button onClick={loadMore}>LOAD MORE</Button>
-              </Container>
             </Route>
             <Route exact path='/singlePost/:postId' component={SinglePost} />
             <Route exact path='/PostList'>
