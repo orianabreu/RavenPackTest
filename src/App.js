@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from "@material-ui/core/CssBaseline";
-import { Grid, Container } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 
 import theme from './styles/theme';
 import NavBar from './components/NavBar/NavBar';
@@ -15,7 +15,6 @@ import PostCard from './components/PostCard/PostCard';
 import SinglePost from './components/SinglePost/SinglePost';
 import PostList from './components/PostList/PostList';
 import SearchBar from './components/SearchBar/SearchBar';
-import Button from './components/Button/Button';
 
 function App(pst) {
 

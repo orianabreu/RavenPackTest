@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { 
     Typography,
-    Avatar,
-    Grid,
     Container
 } from '@material-ui/core';
 
@@ -25,7 +23,7 @@ export default function SinglePost() {
           .then(json => setPostInfo(json))
       }, [postId])
 
-    const { postTitle, description, userAvatar, subtitle } = useStyles();
+    const { postTitle, description, subtitle } = useStyles();
     const { title, body, userId } = postInfo;
 
     return (
@@ -34,7 +32,7 @@ export default function SinglePost() {
             <Typography className={postTitle}>
                 {title}
             </Typography>
-            
+
             <Typography>By user {userId}</Typography>
 
             <Typography className={description}> 
