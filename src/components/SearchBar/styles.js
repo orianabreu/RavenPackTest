@@ -9,12 +9,14 @@ const useStyles = makeStyles((theme) => ({
         '&:hover': {
           backgroundColor: theme.palette.primary.light,
         },
-        marginTop: '20px',
         width: '20%',
       },
-    container: {
+    searchContainer: {
       display: 'flex',
-      justifyContent: 'end',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'flex-end',
+      marginTop: '20px',
     },
     searchIcon: {
         padding: theme.spacing(0, 2),
