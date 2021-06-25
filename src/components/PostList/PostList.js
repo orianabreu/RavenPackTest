@@ -1,38 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { 
-    Typography,
-    Container 
-} from '@material-ui/core';
+import { Typography, Container } from "@material-ui/core";
 
-import useStyles from './styles';
+import useStyles from "./styles";
 
-export default function PostList({pst: { id }}) {
+export default function PostList({ pst: { id } }) {
+  const [postsList, setPostsList] = useState([]);
 
-    const [postsList, setPostsList] = useState([]);
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/posts/")
+      .then((response) => response.json())
+      .then((data) => setPostsList(data));
+  }, []);
 
-    useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/posts/')
-        .then(response => response.json())
-        .then(data => setPostsList(data))
-    }, [])
+  const { heading, text } = useStyles();
 
-    const { heading, text } = useStyles();
-
-    return (
-        <Container maxWidth='lg'>
-            <Typography className={heading}>
-                List of posts:
-            </Typography> 
-            {postsList.map((item) => {
-                return (
-                <Link to={`/singlePost/${id}`} key={item.id}>
-                    <Typography className={text}>
-                        {JSON.stringify(item.title)}
-                    </Typography>
-                </Link>
-                )
-            })}
-        </Container>
-    )
+  return (
+    <Container maxWidth='lg'>
+      <Typography className={heading}>List of posts:</Typography>
+      {postsList.map((item) => {
+        return (
+          <Link to={`/singlePost/${id}`} key={item.id}>
+            <Typography className={text}>
+              {JSON.stringify(item.title)}
+            </Typography>
+          </Link>
+        );
+      })}
+    </Container>
+  );
 }
