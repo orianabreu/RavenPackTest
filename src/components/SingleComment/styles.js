@@ -1,18 +1,18 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
     commentCard: {
         width: '100px',
         float: 'left',
-        marginRight: '20px', 
-        padding: '10px',
+        marginRight: theme.spacing(2), 
+        padding: theme.spacing(1),
     },
     userImageStyle: {
         width: '100%', 
         borderRadius: '50%',
     },
     userComment: {
-        marginLeft: '120px',
+        marginLeft: theme.spacing(14),
     }
   }));
 

@@ -13,7 +13,7 @@ export default function SearchBar(props) {
     const { search, searchIcon, inputRoot, inputInput, searchContainer } = useStyles();
 
     return (
-      <Container maxWidth='lg' className={searchContainer}>
+      <Container className={searchContainer}>
         <Typography>Search user posts:</Typography>
         <div className={search}>
             <div className={searchIcon}>

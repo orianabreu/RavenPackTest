@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import homeImg from '../../assets/backgroundimg.png';
 import useStyles from './styles';
 
-export default function Home() {
+export default function Header() {
 
     const { container, homeImage, textOverlay, homeText} = useStyles();
 

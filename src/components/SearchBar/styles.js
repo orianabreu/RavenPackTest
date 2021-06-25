@@ -16,7 +16,8 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'flex-end',
-      marginTop: '20px',
+      marginTop: theme.spacing(2),
+      width: '90vw'
     },
     searchIcon: {
         padding: theme.spacing(0, 2),
