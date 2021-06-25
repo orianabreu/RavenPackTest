@@ -15,6 +15,7 @@ export default function SinglePost() {
     const [postInfo, setPostInfo] = useState({
         title: '',
         body: '',
+        userId: '',
     });
     const { postId } = useParams();
 
@@ -25,7 +26,7 @@ export default function SinglePost() {
       }, [postId])
 
     const { postTitle, description, userAvatar, subtitle } = useStyles();
-    const { title, body } = postInfo;
+    const { title, body, userId } = postInfo;
 
     return (
         <Container maxWidth="md">
@@ -33,12 +34,9 @@ export default function SinglePost() {
             <Typography className={postTitle}>
                 {title}
             </Typography>
-                <Grid container item xs={12}>
-                    <Avatar alt="Remy Sharp" src="/broken-image.jpg" className={userAvatar} />
-                    <div>
-                        <Typography>User Id</Typography>
-                    </div>
-                </Grid>
+            
+            <Typography>By user {userId}</Typography>
+
             <Typography className={description}> 
                 {body}
             </Typography>
