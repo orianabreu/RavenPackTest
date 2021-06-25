@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Typography,
   Menu,
   MenuItem,
+  IconButton
 } from '@material-ui/core';
 
 import useStyles from './styles';
@@ -22,17 +23,19 @@ export default function NavBar() {
     setAnchorEl(null);
   };
 
-  const {container, title, MuiAppBar } = useStyles();
+  const {container, title, MuiAppBar, toolbar } = useStyles();
 
   return (
     <div className={container}>
       <AppBar position="static" className={MuiAppBar}>
-        <Toolbar>
+        <Toolbar className={toolbar}>
             <Typography className={title}>
               Blog
             </Typography>
 
-            <MenuIcon onClick={handleClick} color='primary'/>
+            <IconButton>
+              <MenuIcon onClick={handleClick} color='primary'/>
+            </IconButton>
                
             <Menu
                 id="simple-menu"

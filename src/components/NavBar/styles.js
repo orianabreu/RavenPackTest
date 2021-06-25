@@ -10,7 +10,10 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.primary.main,
     },
     MuiAppBar: {
-        backgroundColor: 'transparent',
+      backgroundColor: 'transparent',
+    },
+    toolbar: {
+      margin: theme.spacing(0, 3),
     }
   }));
 
