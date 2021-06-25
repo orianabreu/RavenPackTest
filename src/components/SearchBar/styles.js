@@ -41,6 +41,10 @@ const useStyles = makeStyles((theme) => ({
           width: '20ch',
         },
     },
+    text: {
+        fontSize: theme.scale.paragraph,
+        fontWeight: 'bold',
+    },
   }));
 
   export default useStyles;

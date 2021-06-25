@@ -7,11 +7,16 @@ const useStyles = makeStyles((theme) => ({
     },
     postDescription: {
         color: theme.palette.secondary.dark,
+        fontSize: theme.scale.paragraph,
     },
     userText: {
         fontWeight: 'bold',
         marginLeft: '8px',
-    }
+        fontSize: theme.scale.paragraph,
+    },
+    postTitle: {
+        fontSize: theme.scale.subtitle2,
+    },
   }));
 
   export default useStyles;

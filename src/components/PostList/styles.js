@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     heading: { 
-        fontSize: '4rem',
+        fontSize: theme.scale.title,
         fontWeight: '500',
         textAlign: 'center',
         margin: theme.spacing(4, 0),

@@ -10,11 +10,11 @@ import useStyles from './styles';
 
 export default function SearchBar(props) {
 
-    const { search, searchIcon, inputRoot, inputInput, searchContainer } = useStyles();
+    const { search, searchIcon, inputRoot, inputInput, searchContainer, text } = useStyles();
 
     return (
       <Container className={searchContainer}>
-        <Typography>Search user posts:</Typography>
+        <Typography className={text}>Search user posts:</Typography>
         <div className={search}>
             <div className={searchIcon}>
               <SearchIcon />

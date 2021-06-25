@@ -13,7 +13,13 @@ const theme = createMuiTheme({
         },
     },
     typography: {
-        fontFamily: "Roboto",
+      fontFamily: "Roboto",
+    },
+    scale: {
+      title: '4rem',
+      subtitle: '2.5rem',
+      subtitle2: '1.5rem',
+      paragraph: '1rem',
     },
     overrides: {
         MuiCssBaseline: {

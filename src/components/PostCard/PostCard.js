@@ -14,7 +14,7 @@ import postImg from '../../assets/postimg.png';
 
 export default function ImgMediaCard({pst: { id, title, body, userId }}) {
 
-  const { postCard, postDescription, userText } = useStyles();
+  const { postCard, postDescription, userText, postTitle } = useStyles();
 
   return (
       <Card className={postCard}>
@@ -28,7 +28,7 @@ export default function ImgMediaCard({pst: { id, title, body, userId }}) {
               title="jellyfish"
             />
             <CardContent>
-              <Typography gutterBottom variant="h5">
+              <Typography gutterBottom className={postTitle}>
                 {title}
               </Typography>
               <Typography variant="body2" className={postDescription}>

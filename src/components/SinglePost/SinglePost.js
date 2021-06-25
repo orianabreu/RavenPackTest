@@ -33,7 +33,7 @@ export default function SinglePost() {
                 {title}
             </Typography>
 
-            <Typography>By user {userId}</Typography>
+            <Typography className={subtitle}>By user {userId}</Typography>
 
             <Typography className={description}> 
                 {body}

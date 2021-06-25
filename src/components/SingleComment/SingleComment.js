@@ -21,7 +21,7 @@ export default function SingleComment({ comment: { name, email, body } }) {
         })
     }, []);
 
-    const { commentCard, userImageStyle, userComment } = useStyles();
+    const { commentCard, userImageStyle, userComment, userInfo } = useStyles();
 
     return (
         <Card variant="outlined">
@@ -32,6 +32,10 @@ export default function SingleComment({ comment: { name, email, body } }) {
             <CardHeader
                 title={name}
                 subheader={email}
+                classes={{
+                    title: userInfo,
+                    subheader: userInfo,
+                }}
             />
             
             <CardContent>

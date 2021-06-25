@@ -13,6 +13,11 @@ const useStyles = makeStyles((theme) => ({
     },
     userComment: {
         marginLeft: theme.spacing(14),
+        fontSize: theme.scale.paragraph,
+        fontWeight: 300,
+    },
+    userInfo: {
+        fontSize: theme.scale.paragraph,
     }
   }));
 
