@@ -4,7 +4,7 @@ import { Typography, Container } from "@material-ui/core";
 
 import useStyles from "./styles";
 
-export default function PostList({ pst: { id } }) {
+export default function PostList() {
   const [postsList, setPostsList] = useState([]);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export default function PostList({ pst: { id } }) {
       <Typography className={heading}>List of posts:</Typography>
       {postsList.map((item) => {
         return (
-          <Link to={`/singlePost/${id}`} key={item.id}>
+          <Link to={`/singlePost/${item.id}`} key={item.id}> 
             <Typography className={text}>
               {JSON.stringify(item.title)}
             </Typography>
